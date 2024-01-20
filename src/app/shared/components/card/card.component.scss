@@ -1,0 +1,19 @@
+.card-styles {
+	height: 50px;
+	cursor: pointer;
+	transition: transform 0.3s ease; /* Agrega una transición suave al efecto */
+
+}
+
+.card-styles:hover {
+	transform: scale(1.010); /* Escala el div al 120% de su tamaño original */
+  border:#7b00fe 2px solid;
+}
+
+.card-styles:active {
+	transform: scale(1.003); /* Escala el div al 90% de su tamaño original durante el clic */
+}
+
+img, h5{
+  display: inline-block;
+}

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row" style="margin-top: 80px">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="search-input position-relative mt-2">
+        <input
+          type="search"
+          class="form-control form-control-lg ps-5"
+          placeholder="Search characters"
+        />
+        <i class="bx bx-search position-absolute top-50 translate-middle-y search-icon ms-3"></i>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12 mt-2">
+      <div class="search-input position-relative">
+        <select
+          class="form-select form-select-lg ps-5"
+          aria-label="Select location"
+        >
+          <option value="1">Anywhere</option>
+        </select>
+        <i
+          class="bx bx-map-pin position-absolute top-50 translate-middle-y search-icon ms-3"
+        ></i>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12 mt-2">
+      <div class="search-input position-relative">
+        <input class="form-control form-select-lg ps-5" placeholder="Filters" />
+        <i
+          class="bx bx-filter position-absolute top-50 translate-middle-y search-icon ms-3"
+        ></i>
+      </div>
+    </div>
+  </div>
+  <div></div>
+
+  <!-- character list -->
+  <div class="row container-list">
+    <div class="col">
+      <button class="btn btn-outline-custom" (click)="viewDetails()" *ngIf="!showDetail">Ver detalle</button>
+      <button class="btn btn-outline-custom-secondary" (click)="cleanDetail()" *ngIf="showDetail">Limpiar lista</button>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col">
+      <label>Cargando .... {{loading$ | async | json}}</label>
+    </div>
+  </div> -->
+  <div class="row ">
+    <app-card *ngIf="showDetail === false"></app-card>
+    <app-card-detail *ngIf="showDetail === true"></app-card-detail>
+  </div>
+  <button class="btn btn-dark">Go up</button>
+</div>

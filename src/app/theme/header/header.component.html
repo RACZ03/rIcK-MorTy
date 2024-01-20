@@ -1,0 +1,37 @@
+<nav id="nav-header" class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler ms-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="toggleSidebarVisibility()" *ngIf="showButton">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="container"></div>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+    <ul class="navbar-nav d-flex ms-auto me-2">
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="notification-badge"></span>
+          <i class='bx bx-bell icon-bell'></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+          <a class="dropdown-item" href="#">Notification 1</a>
+          <a class="dropdown-item" href="#">Notification 2</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav d-flex me-3">
+      <li class="nav-item dropdown">
+        <a class="nav-link user-dropdown" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="user-label">Usuario</span>
+          <i class='bx bx-chevron-down'></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

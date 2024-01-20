@@ -1,0 +1,49 @@
+
+<header >
+  <div class="image-text">
+    <span class="image">
+      <img src="../../../assets/img/logo.png" alt="logo">
+    </span>
+
+    <div class="text header-text">
+      <span class="name">{{ title }}</span>
+      <span class="profession">{{ subtitle }}</span>
+    </div>
+  </div>
+
+  <i class="bx bx-chevron-right toggle" id="toggle" (click)="toggleSidebar()"></i>
+
+</header>
+
+<div class="menu-bar">
+  <div class="menu">
+    <ul class="menu-links">
+      <li class="nav-link" routerLinkActive="active-route" [routerLink]="link.path" *ngFor="let link of sidebarItems">
+        <a>
+          <i [ngClass]="'bx ' + link.icon +  ' icon'"></i>
+          <span class="text nav-text">{{ link.title }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bottom-content">
+    <li>
+      <a href="#">
+        <i class="bx bx-log-out icon"></i>
+        <span class="text nav-text">Logout</span>
+      </a>
+    </li>
+    <li class="mode">
+      <div class="moon-sun">
+        <i class="bx bx-moon icon moon"></i>
+        <i class="bx bx-sun icon sun"></i>
+      </div>
+      <span class="mode-text text">{{ toggleLabel }}</span>
+
+      <div class="toggle-switch" (click)="switchTheme()">
+        <span class="switch"></span>
+      </div>
+    </li>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="col-12 mt-3" *ngFor="let item of characters$ | async; let i = index">
+  <div class="card card-styles" style="height: 100px" (click)="toggleCheckbox(i, item)" id="card-{{ i }}">
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-7" style="display: flex; align-items: center">
+            <img
+              [src]="item.image"
+              [alt]="item.name"
+              style="height: 60px; width: auto; border-radius: 5px"
+            />
+            <h5 style="margin-left: 10px">{{ item.name }}</h5>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-5" style="font-size: 12px; font-weight: bold">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                Status: {{ item.status }}
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                Species: {{ item.species }}
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                Location: {{ item.location.name }}
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                Id: {{ item.id }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br /><br /><br /><br />
+
+<div class="col-12 mt-3" *ngFor="let item of detail$ | async; let i = index">
+  <div
+    class="card card-styles"
+    style="height: 100px"
+    (click)="toggleCheckbox(i, item)"
+  >
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-7" style="display: flex; align-items: center">
+            <img
+              [src]="item.detail.image"
+              [alt]="item.name"
+              style="height: 60px; width: auto; border-radius: 5px"
+            />
+            <h5 style="margin-left: 10px">{{ item.detail.name }}</h5>
+          </div>
+          <div
+            class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-5"
+            style="font-size: 12px; font-weight: bold"
+          >
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                Status: {{ item.detail.status }}
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                Species: {{ item.detail.species }}
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                Location: {{ item.detail.location.name }}
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                Id: {{ item.detail.id }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
