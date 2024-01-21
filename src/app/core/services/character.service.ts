@@ -14,8 +14,12 @@ export class CharacterService {
   ) { }
 
   searchCharacter(value: string = '', page: number = 1 ): Observable<any> {
-    const filter = `${ environment.baseUrlAPI }/character/?name=${value}&page=${page}`;
-    return this.http.get<Character[]>(filter);
+    try {
+      const filter = `${ environment.baseUrlAPI }/character/?name=${value}&page=${page}`;
+      return this.http.get<Character[]>(filter);
+    } catch (error) {
+      return new Observable();
+    }
   }
 
   getCharacterDetails(id: number) {

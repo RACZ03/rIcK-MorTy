@@ -343,7 +343,7 @@ body.dark .switch::before {
 }
 
 .container-list {
-    margin-top: 30px;
+    margin-top: 50px;
 
     .card {
         .image {
@@ -381,6 +381,22 @@ body.dark .switch::before {
   color: #fff;
   background-color: #666666;
   border-color: #333;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.sort {
+  text-align: right;
+  color: var(--primary-color);
+}
+
+body.dark .sort {
+  color: var(--text-color);
 }
 
 /* Card character */

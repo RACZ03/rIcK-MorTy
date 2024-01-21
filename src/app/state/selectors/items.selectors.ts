@@ -2,19 +2,24 @@ import { CharacterState } from "@app/core";
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
 
-export const selectCharactersFeature = (state: AppState) => state.characters;
+export const selectAllCharactersFeature = (state: AppState) => state.allCharacters;
 
 export const selectListCharacters = createSelector(
-  selectCharactersFeature,
+  selectAllCharactersFeature,
   (state: CharacterState) => state.characters
 );
 
+export const selecAlltListCharacters = createSelector(
+  selectAllCharactersFeature,
+  (state: CharacterState) => state.allCharacters
+);
+
 export const selectLoading = createSelector(
-  selectCharactersFeature,
+  selectAllCharactersFeature,
   (state: CharacterState) => state.loading
 );
 
 export const selectDetail = createSelector(
-  selectCharactersFeature,
+  selectAllCharactersFeature,
   (state: CharacterState) => state.details
 );

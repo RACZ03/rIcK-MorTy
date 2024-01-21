@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Character } from '@app/core';
-import { Observable, withLatestFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   AppState,
   addDetailList,
   removeDetailList,
-  selectListCharacters,
-  toggleDetailChecked,
+  selecAlltListCharacters,
 } from '@app/state';
 
 @Component({
@@ -16,13 +15,18 @@ import {
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
+
   public characters$: Observable<any> = new Observable();
   public detail$: Observable<any> = new Observable();
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.characters$ = this.store.select(selectListCharacters);
+    this.characters$ = this.store.select(selecAlltListCharacters);
+  }
+
+  ngDuckec() {
+    this.characters$ = this.store.select(selecAlltListCharacters);
   }
 
   public toggleCheckbox(index: number, detail: Character) {
@@ -39,6 +43,7 @@ export class CardComponent implements OnInit {
     if (!checked) {
       this.store.dispatch(removeDetailList({ detail }));
     } else {
+      console.log('detail', detail);
       this.store.dispatch(addDetailList({ detail }));
     }
   }

@@ -1,25 +1,30 @@
-import { Injectable } from "@angular/core"
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { mergeMap, catchError, map, EMPTY } from "rxjs";
-import { CharacterService } from "@app/core";
-
+import { Injectable } from '@angular/core';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
+import { EMPTY } from 'rxjs';
+import { mergeMap, map, catchError, withLatestFrom } from 'rxjs/operators';
+import { CharacterService } from '@app/core';
+import { Store, select } from '@ngrx/store';
+import { loadItemsLoading, loadItemsSuccess, loadNextPage, selectCharacterState } from '@app/state';
 
 @Injectable()
-export class ItemsEffects {
+export class CharacterEffects {
+
+  loadNextPage$ = createEffect(() => this.actions$.pipe(
+    ofType(loadNextPage),
+    withLatestFrom(this.store.pipe(select(selectCharacterState))),
+    mergeMap(([action, characterState]) => {
+      const { page, query } = action;
+      return this.characterService.searchCharacter(query, page)
+        .pipe(
+          map(({ results, info }) => loadItemsSuccess({ characters: results, info })),
+          catchError(() => EMPTY)
+        );
+    })
+  ));
 
   constructor(
     private actions$: Actions,
-    private service: CharacterService
-  ) { }
-
-  loadItems$ = createEffect(() => this.actions$.pipe(
-    ofType('[Character List] Load character'),
-    mergeMap(() => this.service.searchCharacter()
-    .pipe(
-      map(resp => ({type: '[Character List] Load character Success', characters: resp.results})),
-      catchError(() => EMPTY)
-    ))
-  )
-  );
-
+    private characterService: CharacterService,
+    private store: Store
+  ) {}
 }

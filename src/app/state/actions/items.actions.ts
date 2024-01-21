@@ -1,13 +1,16 @@
-import { createAction, props } from '@ngrx/store';
-import { Character } from '@app/core';
+import { createAction, props, createFeatureSelector, createSelector } from '@ngrx/store';
+import { Character, CharacterState } from '@app/core';
 
-export const loadItemsLoading = createAction(
-  '[Character List] Load character'
-);
+export interface LoadNextPagePayload {
+  page: number;
+  query: string;
+}
+
+export const loadItemsLoading = createAction('[Character List] Load character');
 
 export const loadItemsSuccess = createAction(
   '[Character List] Load character Success',
-  props<{ characters: Character[] }>()
+  props<{ characters: Character[], info: any }>()
 );
 
 export const addDetailList = createAction(
@@ -21,10 +24,23 @@ export const removeDetailList = createAction(
 );
 
 export const deleteDetailList = createAction(
-  'Character List] Delete Detail character',
+  'Character List] Delete Detail character'
 );
 
-export const toggleDetailChecked = createAction(
-  '[Character List] Toggle Detail Checked',
-  props<{ detail: Character }>()
+export const cleanAllCharacters = createAction(
+  '[Character List] Clean All character'
 );
+
+export const loadNextPage = createAction(
+  '[Character] Load Next Page',
+  props<LoadNextPagePayload>()
+);
+
+export const selectCharacterState = createFeatureSelector<CharacterState>('character');
+
+export const selectCharacters = createSelector(
+  selectCharacterState,
+  (state: CharacterState) => state.characters,
+);
+
+

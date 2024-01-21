@@ -9,7 +9,7 @@ import { HeaderComponent } from '@theme/header/header.component';
 import { SidebarComponent } from '@theme/sidebar/sidebar.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ROOT_REDUCERS, ItemsEffects } from '@app/state';
+import { ROOT_REDUCERS, CharacterEffects } from '@app/state';
 import { EffectsModule } from '@ngrx/effects';
 import { CustomHttpInterceptor } from './core/interceptor/custom-http.interceptor';
 import { ToastrModule } from 'ngx-toastr';
@@ -33,7 +33,7 @@ const COMPONENTS = [
     StoreModule.forRoot(ROOT_REDUCERS),
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
     StoreDevtoolsModule.instrument({ name: 'Test'}),
-    EffectsModule.forRoot([ItemsEffects]),
+    EffectsModule.forRoot([CharacterEffects]),
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',

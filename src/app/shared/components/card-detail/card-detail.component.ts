@@ -20,7 +20,7 @@ export class CardDetailComponent implements OnInit {
     this.detail$ = this.store.select(selectDetail);
 
     this.detail$.subscribe((data) => {
-      console.log(data);
+      // console.log(data);
     }
     );
   }
