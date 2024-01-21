@@ -1,5 +1,5 @@
 <div class="container" #content>
-  <div class="row" style="margin-top: 60px">
+  <div class="row" style="margin-top: 60px" *ngIf="showDetail === false">
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <div class="search-input position-relative mt-2">
 
@@ -42,7 +42,7 @@
             <button class="btn btn-outline-custom" (click)="viewDetails()" *ngIf="!showDetail">Ver detalle</button>
             <button class="btn btn-outline-custom-secondary" (click)="cleanDetail()" *ngIf="showDetail">Regresar</button>
         </div>
-        <h6 class="sort">Sort by: Date <i class='bx bx-chevron-down'></i></h6>
+        <h6 class="sort"  *ngIf="showDetail === false">Sort by: Date <i class='bx bx-chevron-down'></i></h6>
     </div>
   </div>
   <!-- <div class="row">
