@@ -370,6 +370,18 @@ body.dark .switch::before {
   border-color: var(--primary-color);
 }
 
+body.dark .btn-outline-custom {
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+body.dark .btn-outline-custom:hover {
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
 .btn-outline-custom-secondary {
   color: #333;
   background-color: transparent;
@@ -383,11 +395,33 @@ body.dark .switch::before {
   border-color: #333;
 }
 
+body.dark .btn-outline-custom-secondary {
+  color: #fff;
+  background-color: #666666;
+  border-color: #333;
+}
+
+body.dark .btn-outline-custom-secondary:hover {
+  color: #fff;
+  background-color: #666666;
+  border-color: #333;
+}
+
 .floating-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 100;
+}
+
+.floating-button .btn {
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .sort {
