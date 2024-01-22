@@ -103,6 +103,7 @@ export class DashboardComponent implements OnInit {
     this.store.dispatch(cleanAllCharacters());
     this.characters = [];
     // clean state
+    this.pageNum = 1;
     this.getDataFromService(this.query, this.pageNum);
   }
 
